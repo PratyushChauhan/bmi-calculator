@@ -91,13 +91,19 @@ class _InputPageState extends State<InputPage> {
                         ],
                       ),
                       SliderTheme(
-                        data:
-                            const SliderThemeData(overlayColor: kOverlayColor),
+                        data: SliderTheme.of(context).copyWith(
+                          activeTrackColor: kSliderActiveColor,
+                          inactiveTrackColor: kSliderInactiveColor,
+                          overlayColor: kOverlayColor,
+                          overlayShape:
+                              RoundSliderOverlayShape(overlayRadius: 30.0),
+                          thumbShape:
+                              RoundSliderThumbShape(enabledThumbRadius: 15.0),
+                          thumbColor: kThumbColor,
+                        ),
                         child: Slider(
                           value: _height.toDouble(),
-                          activeColor: kSliderActiveColor,
-                          inactiveColor: kSliderInactiveColor,
-                          thumbColor: kThumbColor,
+                          // thumbColor: kThumbColor,
                           onChanged: (double newHeight) {
                             setState(() {
                               _height = newHeight.round();
