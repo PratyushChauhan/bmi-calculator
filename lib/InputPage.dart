@@ -224,15 +224,21 @@ class _InputPageState extends State<InputPage> {
               )
             ],
           )),
-          Container(
-            margin: const EdgeInsets.only(top: 10),
-            color: kBottomContainerColor,
-            width: double.infinity,
-            height: kBottomContainerHeight,
-            alignment: Alignment.center,
-            child: Text(
-              "CALCULATE YOUR BMI",
-              style: kBottomContainerTextStyle,
+          GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, '/result');
+            },
+            child: Container(
+              margin: const EdgeInsets.only(top: 10),
+              color: kBottomContainerColor,
+              width: double.infinity,
+              height: kBottomContainerHeight,
+              alignment: Alignment.center,
+              child: const Text(
+                "CALCULATE YOUR BMI",
+                style: kLargeButtonTextStyle,
+              ),
+              padding: const EdgeInsets.only(bottom: 10.0),
             ),
           )
         ],
@@ -245,6 +251,7 @@ class RoundIconButton extends StatelessWidget {
   RoundIconButton({required this.icon, required this.onPress});
   final IconData icon;
   final Function onPress;
+  bool buttonPress = false;
   // Timer timer = Timer.periodic(Duration(milliseconds: 200), (t) {});
 
   @override
@@ -253,11 +260,11 @@ class RoundIconButton extends StatelessWidget {
       onPressed: () {
         onPress();
       },
-      child: Icon(icon),
-      fillColor: Color(0xFF4C4F5E),
-      constraints: BoxConstraints.tightFor(width: 56.0, height: 56.0),
-      shape: CircleBorder(),
+      fillColor: const Color(0xFF4C4F5E),
+      constraints: const BoxConstraints.tightFor(width: 56.0, height: 56.0),
+      shape: const CircleBorder(),
       elevation: 0.0,
+      child: Icon(icon),
     );
   }
 }
