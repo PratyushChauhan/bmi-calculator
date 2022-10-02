@@ -29,4 +29,14 @@ class CalculatorBrain {
       return 'You have a lower than normal body weight. You can eat a bit more.';
     }
   }
+
+  String getRange() {
+    if (_bmi >= 25) {
+      return '>= 25 kg/m2';
+    } else if (_bmi >= 18.5) {
+      return '18.5 - 25 kg/m2';
+    } else {
+      return '< 18.5 kg/m2';
+    }
+  }
 }
