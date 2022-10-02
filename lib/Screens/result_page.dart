@@ -44,7 +44,13 @@ class ResultPage extends StatelessWidget {
                 children: [
                   Text(
                     result.toUpperCase(),
-                    style: kResultTextStyle,
+                    style: TextStyle(
+                      color: result == 'Normal'
+                          ? Color(0xFF24D876)
+                          : Color(0xFFD89F24),
+                      fontSize: 22.0,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   Text(
                     bmi,
