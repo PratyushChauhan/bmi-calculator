@@ -1,8 +1,10 @@
+import 'package:bmi_calculator/round_icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:bmi_calculator/Constants.dart';
 import 'IconContent.dart';
 import 'ReusableCard.dart';
+import 'bottom_button.dart';
 
 enum Gender {
   male,
@@ -224,47 +226,14 @@ class _InputPageState extends State<InputPage> {
               )
             ],
           )),
-          GestureDetector(
+          BottomButton(
+            text: 'CALCULATE YOUR BMI',
             onTap: () {
               Navigator.pushNamed(context, '/result');
             },
-            child: Container(
-              margin: const EdgeInsets.only(top: 10),
-              color: kBottomContainerColor,
-              width: double.infinity,
-              height: kBottomContainerHeight,
-              alignment: Alignment.center,
-              child: const Text(
-                "CALCULATE YOUR BMI",
-                style: kLargeButtonTextStyle,
-              ),
-              padding: const EdgeInsets.only(bottom: 10.0),
-            ),
           )
         ],
       ),
-    );
-  }
-}
-
-class RoundIconButton extends StatelessWidget {
-  RoundIconButton({required this.icon, required this.onPress});
-  final IconData icon;
-  final Function onPress;
-  bool buttonPress = false;
-  // Timer timer = Timer.periodic(Duration(milliseconds: 200), (t) {});
-
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-      onPressed: () {
-        onPress();
-      },
-      fillColor: const Color(0xFF4C4F5E),
-      constraints: const BoxConstraints.tightFor(width: 56.0, height: 56.0),
-      shape: const CircleBorder(),
-      elevation: 0.0,
-      child: Icon(icon),
     );
   }
 }
